@@ -1,0 +1,58 @@
+﻿@model Person.Models.EntityModels.Personage
+
+@{
+    ViewData["Title"] = "PersonageEdit";
+}
+
+<h1>Personage Edit</h1>
+<div>
+    <a class="btn btn-dark" asp-action="PersonageList">Back to Personage List</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert-danger">@ViewBag.Message</div>
+        }
+            <form asp-action="PersonageEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ID" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNo" class="control-label"></label>
+                    <input asp-for="PhoneNo" class="form-control" />
+                    <span asp-validation-for="PhoneNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group checkbox">
+                    <input asp-for="IsActive"  />
+                    <label asp-for="IsActive">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}

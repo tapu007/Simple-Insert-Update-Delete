@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Person.Models.EntityModels.Personage>
+
+@{
+    ViewData["Title"] = "PersonageList";
+}
+
+<h1>PersonageList</h1>
+
+<p>
+    <a class="btn btn-dark" asp-action="PersonageCreate">Create New</a>
+</p>
+<table class="table table-active table-bordered">
+    <thead class="bg-secondary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a class="btn btn-dark" asp-action="PersonageEdit" asp-route-id="@item.ID">Edit</a> |
+                <a class="btn btn-dark" asp-action="PersonageInfo" asp-route-id="@item.ID">Details</a> |
+                <a class="btn btn-dark" asp-action="PersonageRemove" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
